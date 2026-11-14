@@ -1,18 +1,18 @@
 # Daily implementation task configuration
 
-**Status: not activated.** These are settings and a prompt to enter in the app's task scheduler. No daily run has been registered by this planning session.
+**Status: ACTIVE, verified in the app on 2026-11-14.** Task ID: `implement-pdf-document-search-14-days`. A local recurring task is attached to the current conversation.
 
 - Name: Implement PDF Document Search
 - Runtime: local, with access to this project folder, Git, Python and GitHub CLI.
 - Working directory: `D:\Portfolio\pdf_document_search`
 - Time: daily at 10:00, timezone `Asia/Vladivostok` (UTC+10).
-- First run: 2026-11-15. Last planned run: 2026-12-05 (21 runs).
-- If the scheduler has no end-date setting, use the date/completion guard in the prompt and disable the task after delivery. Do not run now during setup.
+- First run: 2026-11-15. Last planned run: 2026-11-28 (14 runs).
+- The registered schedule ends on November 28. The prompt also prevents implementation before November 15, after November 28, or after completion. No implementation run was requested during setup.
 - Repository: https://github.com/nexoradev1221/pdf_document_search
 
 ## Task prompt
 
-Work on the local project at D:\Portfolio\pdf_document_search and its GitHub repository nexoradev1221/pdf_document_search. The user authorizes daily implementation from November 15 through December 5, 2026 inclusive, following plan.md, with frequent meaningful commits and pushes. Use Asia/Vladivostok for calendar dates. Before November 15, do not implement. After December 5, or once the project is complete, do not continue implementation; report current completion/blockers and disable this task if supported.
+Work on the local project at D:\Portfolio\pdf_document_search and its GitHub repository nexoradev1221/pdf_document_search. The user authorizes daily implementation from November 15 through November 28, 2026 inclusive, following plan.md, with frequent meaningful commits and pushes. Use Asia/Vladivostok for calendar dates. Before November 15, do not implement. After November 28, or once the project is complete, do not continue implementation; report current completion/blockers and disable this task if supported.
 
 First read AGENTS.md, requirements.md, plan.md, the execution log, Git status, current branches and remotes. Follow the English correction instruction in AGENTS.md. Resume incomplete prerequisites and the next unchecked milestone, using the day/date as a target rather than permission to skip unfinished work. Make bounded daily progress and record evidence so a fresh session can resume. Never overlap another implementation run; if a run is still active, skip this run and report it.
 
