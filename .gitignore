@@ -1,0 +1,33 @@
+# Python and tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Local/private application state
+.env
+.env.*
+!.env.example
+config.local.toml
+data/
+private_documents/
+models/
+logs/
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# Machine-specific files
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
