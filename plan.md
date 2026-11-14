@@ -3,9 +3,9 @@
 ## Status and schedule
 
 - Planning date: 2026-11-14. Application implementation has not started.
-- Duration: 21 daily sessions, 2026-11-15 through 2026-12-05 inclusive.
-- Proposed daily start: 10:00 Asia/Vladivostok (UTC+10).
-- Scheduler status: NOT ACTIVATED. This session has no local automation creation tool; this file is a schedule, not a running task. See `scheduled-task.md` for the task configuration to enter in the app.
+- Duration: 14 daily sessions, 2026-11-15 through 2026-11-28 inclusive.
+- Daily start: 10:00 Asia/Vladivostok (UTC+10).
+- Scheduler status: ACTIVE. App task `implement-pdf-document-search-14-days` is attached to this conversation, daily at 10:00 Asia/Vladivostok, with a Nov 28 end date and a Nov 15 start guard. See `scheduled-task.md`.
 - Source of scope: `requirements.md`, DEMO-SRS-03 v1.0.
 - Repository: `nexoradev1221/pdf_document_search`.
 - This is a fictional portfolio demonstration; never describe it as a paid client delivery or deployed production service.
@@ -72,25 +72,18 @@ All milestones initially remain unchecked. Dependencies take precedence over the
 | --- | --- | --- | --- |
 | [ ] | 1 / Nov 15 | `chore/project-foundation` | Validate architecture, Windows/Python compatibility, FTS5 availability and dependency licenses (especially PyMuPDF and bundled viewer/model terms); create package, reproducible environment, sample config, lint/test setup and CI. Record technical decisions. |
 | [ ] | 2 / Nov 16 | `test/synthetic-corpus` | Generate at least 15 synthetic PDFs, including native, scanned, mixed, multi-page, Cyrillic and known part-code cases. Add generator, provenance, deterministic fixture manifest and a corrupt-file test fixture. |
-| [ ] | 3 / Nov 17 | `feat/collection-storage` | Add migrations, collections/documents/pages schema, local data paths and config validation. Test relationships, path identity, migrations and persistence. |
-| [ ] | 4 / Nov 18 | `feat/pdf-extraction` | Implement native text/metadata extraction with 1-based physical pages and image-only detection; isolate malformed/password-protected documents. Test mixed and empty pages. |
-| [ ] | 5 / Nov 19 | `feat/collection-import` | Add multi-file import and recursive explicit-root discovery; handle duplicates, exclusions, nested paths, unreadable files and symlinks. |
-| [ ] | 6 / Nov 20 | `feat/fts-index` | Build page-level FTS5 index and serialized job state; transactional updates, progress and cancellation/recovery. Test interrupted indexing and repeated runs. |
-| [ ] | 7 / Nov 21 | `feat/index-refresh` | Add fingerprints, refresh, deletion cleanup, explicit document removal/exclusion and reimport. Verify AT-02 and stale-entry cleanup. |
-| [ ] | 8 / Nov 22 | `feat/lexical-search` | Keyword/phrase/part-code parsing and normalization, ranking and safe queries. Test punctuation, exact fixture pages and Cyrillic; establish AT-01 at service level. |
-| [ ] | 9 / Nov 23 | `feat/search-results` | Document/folder filters, snippets, result pagination and structured result records. Test escaped content, scope isolation and deterministic ranking. |
-| [ ] | 10 / Nov 24 | `feat/local-ui` | Local server, Russian navigation, collection/import controls and search form/results. Verify error/empty/loading states and keyboard access. |
-| [ ] | 11 / Nov 25 | `feat/pdf-viewer` | Bundle local viewer assets, serve only registered PDFs, and open exact source pages. Run end-to-end AT-01 and path/HTML safety checks. |
-| [ ] | 12 / Nov 26 | `feat/index-status` | Russian status screen, counts, failure log, retry, refresh/removal confirmation and background-job progress. Verify partial failures remain recoverable. |
-| [ ] | 13 / Nov 27 | `feat/optional-ocr` | Optional Tesseract setup and per-page adapter, timeout/error statuses and native-text bypass. Verify useful behavior without OCR installed. |
-| [ ] | 14 / Nov 28 | `test/ocr-acceptance` | Real OCR scan/mixed-document tests, scanned-code retrieval, reindex/cleanup and retry handling. Capture AT-03 evidence and document OCR limits. |
-| [ ] | 15 / Nov 29 | `feat/local-semantic-search` | Opt-in local model configuration, page embeddings and separate semantic mode; cache invalidation/deletion and missing-model messaging. Keep keyword default. |
-| [ ] | 16 / Nov 30 | `test/offline-search` | Verify semantic results and resource behavior on the corpus; execute AT-04 with external network disabled after setup. Check no CDN, telemetry or automatic model dependency. |
-| [ ] | 17 / Dec 01 | `fix/reliability` | Investigate extraction/index/search failures, corrupted inputs, recovery, query injection/path traversal/XSS cases and practical performance. Record measured timings, environment and corpus sizes without unsupported speed claims. |
-| [ ] | 18 / Dec 02 | `test/end-to-end` | Run integrated FR-01–08 and AT-01–04 matrix; test fresh install and optional dependencies absent/present. Fix identified behavior regressions in focused commits. |
-| [ ] | 19 / Dec 03 | `docs/user-guide` | Write English install/test/usage/limitations README, Russian end-user help, configuration and troubleshooting, data/model licenses and fictional portfolio notice. |
-| [ ] | 20 / Dec 04 | `docs/demo-evidence` | Run real demo, capture actual screenshots, document each acceptance scenario and expected outputs; verify distribution contains no private PDFs, logs, secrets or caches. |
-| [ ] | 21 / Dec 05 | `chore/release-validation` | Reproduce installation and full checks from a clean checkout, reconcile requirements evidence, merge passing changes, tag a versioned demo release and record final deliverables/remaining limitations. Stop further implementation when complete. |
+| [ ] | 3 / Nov 17 | `feat/collection-storage` | Add migrations, collections/documents/pages schema, local data paths and config validation. Test relationships, path identity, migrations and persistence. Then: Implement native text/metadata extraction with 1-based physical pages and image-only detection; isolate malformed/password-protected documents. Test mixed and empty pages. |
+| [ ] | 4 / Nov 18 | `feat/collection-import` | Add multi-file import and recursive explicit-root discovery; handle duplicates, exclusions, nested paths, unreadable files and symlinks. Then: Build page-level FTS5 index and serialized job state; transactional updates, progress and cancellation/recovery. Test interrupted indexing and repeated runs. |
+| [ ] | 5 / Nov 19 | `feat/index-refresh` | Add fingerprints, refresh, deletion cleanup, explicit document removal/exclusion and reimport. Verify AT-02 and stale-entry cleanup. |
+| [ ] | 6 / Nov 20 | `feat/lexical-search` | Keyword/phrase/part-code parsing and normalization, ranking and safe queries. Test punctuation, exact fixture pages and Cyrillic; establish AT-01 at service level. Then: Document/folder filters, snippets, result pagination and structured result records. Test escaped content, scope isolation and deterministic ranking. |
+| [ ] | 7 / Nov 21 | `feat/local-ui` | Local server, Russian navigation, collection/import controls and search form/results. Verify error/empty/loading states and keyboard access. |
+| [ ] | 8 / Nov 22 | `feat/pdf-viewer` | Bundle local viewer assets, serve only registered PDFs, and open exact source pages. Run end-to-end AT-01 and path/HTML safety checks. Then: Russian status screen, counts, failure log, retry, refresh/removal confirmation and background-job progress. Verify partial failures remain recoverable. |
+| [ ] | 9 / Nov 23 | `feat/optional-ocr` | Optional Tesseract setup and per-page adapter, timeout/error statuses and native-text bypass. Verify useful behavior without OCR installed. Then: Real OCR scan/mixed-document tests, scanned-code retrieval, reindex/cleanup and retry handling. Capture AT-03 evidence and document OCR limits. |
+| [ ] | 10 / Nov 24 | `feat/local-semantic-search` | Opt-in local model configuration, page embeddings and separate semantic mode; cache invalidation/deletion and missing-model messaging. Keep keyword default. |
+| [ ] | 11 / Nov 25 | `test/offline-search` | Verify semantic results and resource behavior on the corpus; execute AT-04 with external network disabled after setup. Check no CDN, telemetry or automatic model dependency. |
+| [ ] | 12 / Nov 26 | `fix/reliability` | Investigate extraction/index/search failures, corrupted inputs, recovery, query injection/path traversal/XSS cases and practical performance. Record measured timings, environment and corpus sizes without unsupported speed claims. Then: Run integrated FR-01–08 and AT-01–04 matrix; test fresh install and optional dependencies absent/present. Fix identified behavior regressions in focused commits. |
+| [ ] | 13 / Nov 27 | `docs/user-guide` | Write English install/test/usage/limitations README, Russian end-user help, configuration and troubleshooting, data/model licenses and fictional portfolio notice. Then: Run real demo, capture actual screenshots, document each acceptance scenario and expected outputs; verify distribution contains no private PDFs, logs, secrets or caches. |
+| [ ] | 14 / Nov 28 | `chore/release-validation` | Reproduce installation and full checks from a clean checkout, reconcile requirements evidence, merge passing changes, tag a versioned demo release and record final deliverables/remaining limitations. Stop further implementation when complete. |
 
 ## Validation strategy
 
@@ -112,3 +105,5 @@ The final evidence file should map each FR and AT to tests, commands, observed r
 | Date | Work | Validation / next step |
 | --- | --- | --- |
 | 2026-11-14 | Read requirements and prepared this 21-day plan; no application implementation. | GitHub account verified as nexoradev1221. Activate the app task using `scheduled-task.md`; begin day 1 on Nov 15. |
+
+| 2026-11-14 | Revised the daily schedule to 14 sessions (Nov 15–28) at the user's request; combined related milestones without dropping requirements. | App task implement-pdf-document-search-14-days created and verified ACTIVE; no application implementation. |
