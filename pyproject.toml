@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-document-search"
+version = "0.1.0"
+description = "Offline maintenance PDF search portfolio demonstration"
+requires-python = ">=3.12"
+license = "AGPL-3.0-only"
+dependencies = ["PyMuPDF>=1.26,<2", "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "jinja2>=3.1,<4", "python-multipart>=0.0.20,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "httpx>=0.28,<1"]
+
+[project.scripts]
+pdf-document-search = "pdf_document_search.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

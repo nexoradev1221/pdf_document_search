@@ -1,0 +1,6 @@
+# Relative paths resolve against this file, not the process working directory.
+data_dir = "data"
+host = "127.0.0.1"
+port = 8765
+ocr_enabled = false
+semantic_enabled = false
