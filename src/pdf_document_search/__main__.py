@@ -3,6 +3,7 @@
 import argparse
 import json
 import sqlite3
+import sys
 
 from pdf_document_search.config import load_config
 
@@ -21,6 +22,8 @@ def check_fts5() -> str:
 
 
 def main() -> None:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description="Диагностика локального поиска PDF")
     parser.add_argument("--config", help="Путь к файлу TOML")
     args = parser.parse_args()
