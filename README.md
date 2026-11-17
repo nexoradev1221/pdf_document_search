@@ -2,7 +2,7 @@
 
 A fictional maintenance-document search portfolio demonstration. This is not a paid client delivery or a deployed production service.
 
-**Current state:** project foundation and read-only runtime diagnostics. PDF import, search, OCR, viewer and sample corpus are scheduled in [plan.md](plan.md); they are not implemented yet.
+**Current state:** project foundation and read-only runtime diagnostics. A 15-document synthetic corpus is available in sample_data. PDF import, search, OCR and viewer are scheduled in [plan.md](plan.md); they are not implemented yet.
 
 Python 3.12, including SQLite FTS5, is required. In PowerShell:
 
