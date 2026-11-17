@@ -2,7 +2,7 @@
 
 ## Status and schedule
 
-- Planning date: 2026-11-14. Application implementation has not started.
+- Planning date: 2026-11-14. Foundation implementation began 2026-11-16; see the execution log.
 - Duration: 14 daily sessions, 2026-11-15 through 2026-11-28 inclusive.
 - Daily start: 10:00 Asia/Vladivostok (UTC+10).
 - Scheduler status: ACTIVE. App task `implement-pdf-document-search-14-days` is attached to this conversation, daily at 10:00 Asia/Vladivostok, with a Nov 28 end date and a Nov 15 start guard. See `scheduled-task.md`.
@@ -66,7 +66,7 @@ Use GitHub Flow: stable `main` plus short-lived `feat/...`, `fix/...`, `test/...
 
 ## Daily milestones
 
-All milestones initially remain unchecked. Dependencies take precedence over the calendar: resume unfinished prerequisite work before moving on, and record any date slip.
+Milestones are checked only after their verification gates complete. Dependencies take precedence over the calendar: resume unfinished prerequisite work before moving on, and record any date slip.
 
 | Done | Day / date | Branch suggestion | Work and completion evidence |
 | --- | --- | --- | --- |
@@ -107,3 +107,5 @@ The final evidence file should map each FR and AT to tests, commands, observed r
 | 2026-11-14 | Read requirements and prepared this 21-day plan; no application implementation. | GitHub account verified as nexoradev1221. Activate the app task using `scheduled-task.md`; begin day 1 on Nov 15. |
 
 | 2026-11-14 | Revised the daily schedule to 14 sessions (Nov 15–28) at the user's request; combined related milestones without dropping requirements. | App task implement-pdf-document-search-14-days created and verified ACTIVE; no application implementation. |
+
+| 2026-11-16 | Resumed the unfinished day-1 prerequisite on chore/project-foundation (day-2 corpus deferred). Added installable Python package, strict local TOML config, FTS5 diagnostic, pinned environment, AGPL license/component decisions, README and Windows/Linux CI. Fixed observed Russian diagnostic encoding. Commits 89a34a5, 8bab066, 3aaed10 pushed; PR #1: https://github.com/nexoradev1221/pdf_document_search/pull/1 . | Local Windows Python 3.12.10 / SQLite 3.49.1: 12 pytest tests pass, Ruff and pip check pass, FTS5/CLI probe passes. Diff reviewed; hosted checks pending, so milestone remains unchecked and no merge claimed. Next: inspect PR #1 CI, fix any failures and merge when passing; then generate the day-2 synthetic corpus. Read-only sandbox required approved escalations for project writes/network/runtime execution; approvals succeeded. No AT-01–04 completion claimed. |
